@@ -15,4 +15,24 @@ spec:
       container:
       - name: mysql
         image: 5.6
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysql-db-password
+                key: db-password
+        ports:
+          - containerPort: 3306
+            name: mysql
+        volumeMounts: #this is related to container inside your Pod
+          - name: mysql-persistent-storage
+            mountPath: /var/lib/mysql
+          - name: usermanagement-db-creation-script
+            mountPath: /docker-entrypoint-initdb.d
+      volumes:
+        - name: mysql-persistent-storage
+            claimName: task-pv-claim
+        - name: usermanagement-db-creation-script #config map is stored as storage in k8s
+            configMap:
+              name: usermanagement-db-creation-script 
         
