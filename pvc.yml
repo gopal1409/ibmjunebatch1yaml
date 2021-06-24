@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: task-pv-claim
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: manual #this name match with pv storageclassname
+  resources:
+    requests:
+      storage: 6Gi
