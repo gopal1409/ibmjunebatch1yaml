@@ -6,5 +6,5 @@ spec:
   selector:
     app: mysql
   port:
-    - port: 3306
+    - ports: 3306
   clusterIP: None #it should communicate using Pod IP
