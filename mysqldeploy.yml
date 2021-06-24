@@ -12,7 +12,7 @@ spec:
       labels:
         app: mysql
     spec:
-      container:
+      containers:
       - name: mysql
         image: 5.6
         env:
