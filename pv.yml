@@ -1,0 +1,17 @@
+#kubectl apply -f pv.yml
+#any yaml file run from top to botton and left to right
+apiVersion: v1 #it will invoke apiver
+kind: PersistentVolume #which api it should invoke
+metadata: #using metadata i am provisioing my storage with a name and label
+  name: task-pv-volume
+  labels:
+    type: local
+spec: #inside the pv
+  storageClassName: manual #this is the name of the storage
+  capacity:
+    storage: 10Gi #thin provision
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+  
