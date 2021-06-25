@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Service
 metadata: 
   name: app1-nginx-clusterip-service
+  labels:
+    app: app1-nginx
 spec:
   type: clusterIP
   selector:
