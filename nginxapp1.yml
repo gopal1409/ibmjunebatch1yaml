@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment #we are creating a deployment
+metadata:
+  name: app1-nginx-deployment
+  labels:
+    app: app1-nginx
+spec:
+  replicas: 1 #inside this deployment it will create three pod how the deployment is going to manage this three pod
+  selector:
+    matchLabels: #this is like an match expression
+      app: app1-nginx  #key: value
+  template: #inside the pod we need to create container. 
+    metadata:
+      
+      labels: #whatver label we have given to the pod same label name should exist inside your template. 
+        app: app1-nginx
+    spec:
+      containers:
+      - name: app1-nginx
+        image: stacksimplify/kubenginx:1.0.0
+        ports:
+          - containerPort: 80
+
+          #it has create pod
+          #inside the pod it download an image 
+          #finally start the container
