@@ -5,7 +5,7 @@ metadata:
   labels:
     app: app1-nginx
 spec:
-  type: clusterIP
+  type: ClusterIP
   selector:
     app: app1-nginx
   ports:
