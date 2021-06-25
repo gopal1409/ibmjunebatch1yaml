@@ -10,4 +10,4 @@ spec:
     app: app1-nginx
   ports:
     - port: 80
-  clusterIP: 80 #it should communicate using Pod IP
+      targetPort: 80 #it should communicate using Pod IP
